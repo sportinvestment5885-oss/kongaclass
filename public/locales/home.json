@@ -1,0 +1,134 @@
+{
+  "hero": {
+    "welcome": "KONGA® – MOZGÁS, ENERGIA, ÉLMÉNY",
+    "headingHighlight": "Mozdulj",
+    "headingRest": " rá a ritmusra, és hozd formába az egész tested.",
+    "subheading": "Táncos koreográfiák, boxos kombinációk, intenzív kardió és alakformáló gyakorlatok egyetlen lendületes edzésben.",
+    "scheduleAria": "Edzésidőpontok",
+    "scheduleTue": "Kedd 19:30",
+    "scheduleThu": "Csütörtök 18:30",
+    "cta": {
+      "label": "Magamról",
+      "href": "#rolunk"
+    },
+    "imageAlt": "Edzés battle rope-okkal a teremben"
+  },
+  "services": {
+    "ariaLabel": "KONGA® edzés",
+    "description": "A KONGA® egy lendületes, teljes testes edzés, amely többféle mozgásformát kapcsol össze egyetlen dinamikus órában. A táncos koreográfiák, a boxos mozdulatok, a pulzust megemelő kardió és az alakformáló gyakorlatok folyamatosan váltják egymást, így az edzés változatos, energikus és intenzív marad.",
+    "items": [
+      {
+        "id": "dance",
+        "title": "Tánc",
+        "description": "Egyszerű, könnyen követhető koreográfiák, ritmikus lépések, csípőmozgások, fordulatok és teljes testes táncos mozdulatok gondoskodnak a folyamatos mozgásról.",
+        "href": "#services",
+        "iconVariant": "orange"
+      },
+      {
+        "id": "boxing",
+        "title": "Box",
+        "description": "Ütések, kombinációk, horgok, egyenes ütések, felütések és védekező mozdulatok kerülnek az edzésbe, amelyek megmozgatják a felsőtestet és intenzíven emelik a pulzust.",
+        "href": "#services",
+        "iconVariant": "green"
+      },
+      {
+        "id": "cardio",
+        "title": "Kardió",
+        "description": "Lépések, ugrások, térdemelések, oldalirányú mozgások és dinamikus egész testes gyakorlatok tartják magasan a pulzust, miközben fejlesztik az állóképességet.",
+        "href": "#services",
+        "iconVariant": "orange"
+      },
+      {
+        "id": "sculpting",
+        "title": "Alakformálás",
+        "description": "Guggolások, kitörések, törzsfordítások, kar- és lábgyakorlatok, valamint saját testsúlyos erősítő mozdulatok segítik az izmok tónusosabbá és feszesebbé tételét.",
+        "href": "#services",
+        "iconVariant": "orange"
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "Bemutatkozás",
+    "headingBefore": "Szia, ",
+    "headingHighlight": "Kitti",
+    "headingAfter": " vagyok – Konga® oktató Baján.",
+    "paragraphs": [
+      "Több éve tanítok Konga edzéseket, ahol a dobolás, a tánc és a kardió találkozik. Nálam nincs kötelező tudás vagy előképzettség: mindenki a saját tempójában halad, a lényeg a jókedv és hogy mozogj egy jót.",
+      "Az óráimon kis létszámmal dolgozom, hogy mindenkire jusson figyelem. Gyere el egy próbaórára, és tapasztald meg, milyen mosolyogva izzadni."
+    ],
+    "photoAlt": "Kitti, Konga® oktató",
+    "badgeLabel": "Oktató",
+    "badgeName": "Kitti",
+    "stats": [
+      { "value": "6+", "label": "év tapasztalat" },
+      { "value": "4", "label": "óratípus" },
+      { "value": "500+", "label": "elégedett vendég" }
+    ],
+    "cta": {
+      "label": "Foglalj próbaórát",
+      "href": "/foglalas"
+    }
+  },
+  "gallery": {
+    "eyebrow": "Galéria",
+    "heading": "Képek és videók az órákról",
+    "intro": "Pillanatok a Konga órákról – hangulat, ritmus és energia Baján.",
+    "cta": {
+      "label": "Több kép és videó",
+      "labelLess": "Kevesebb"
+    },
+    "items": [
+      {
+        "id": "1",
+        "type": "image",
+        "src": "/images/fitness1.jpg",
+        "label": "Konga fitness",
+        "aspect": "portrait"
+      },
+      {
+        "id": "2",
+        "type": "video",
+        "src": "/videos/home-loop.mp4",
+        "label": "Konga hangulat",
+        "aspect": "wide",
+        "loop": true,
+        "muted": true,
+        "autoplay": true
+      },
+      { "id": "3", "type": "image", "src": "/images/fullclass.jpg", "label": "Konga óra", "aspect": "portrait" },
+      {
+        "id": "4",
+        "type": "video",
+        "src": "/videos/kongavideo1.mp4",
+        "label": "Konga edzés",
+        "aspect": "wide"
+      },
+      { "id": "5", "type": "image", "src": "/images/fitness3.jpg", "label": "Konga energia", "aspect": "portrait" },
+      { "id": "6", "type": "image", "src": "/images/konga5.jpg", "label": "Konga pillanat", "aspect": "portrait" },
+      {
+        "id": "7",
+        "type": "video",
+        "src": "/videos/kongavideo2.mp4",
+        "label": "Konga videó 2",
+        "aspect": "wide",
+        "extra": true
+      },
+      {
+        "id": "8",
+        "type": "video",
+        "src": "/videos/kongavideo3.mp4",
+        "label": "Konga videó 3",
+        "aspect": "wide",
+        "extra": true
+      },
+      {
+        "id": "9",
+        "type": "video",
+        "src": "/videos/kongavideo4.mp4",
+        "label": "Konga videó 4",
+        "aspect": "wide",
+        "extra": true
+      }
+    ]
+  }
+}

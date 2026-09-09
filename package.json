@@ -1,0 +1,28 @@
+{
+  "name": "konga-kitti-web",
+  "version": "1.0.0",
+  "description": "J.B Konga by Kitti — Express site with SQLite booking API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "PORT=5050 node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "dotenv": "^17.4.2",
+    "express": "^4.21.2",
+    "nodemailer": "^9.0.5"
+  },
+  "keywords": [
+    "express",
+    "static",
+    "railway"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0"
+  }
+}

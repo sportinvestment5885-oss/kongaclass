@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="page-booking">
+    <header class="site-header">
+      <div class="header-wrap">
+        <div class="header-inner">
+          <div class="header-left">
+            <h1 class="site-title">
+              <a href="/" data-content="meta.siteTitle"></a>
+            </h1>
+          </div>
+
+          <div class="header-right">
+            <div class="header-phone-box">
+              <div class="header-phone-inner">
+                <p class="top-phone-text" data-content="location.label"></p>
+                <p class="top-phone-num">
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-content="location.address"
+                    data-content-attr="href:location.mapsHref"
+                  ></a>
+                </p>
+              </div>
+            </div>
+
+            <nav
+              class="primary-nav"
+              id="primary-nav"
+              data-content-attr="aria-label:nav.ariaLabel"
+            >
+              <button
+                class="nav-toggle"
+                id="nav-toggle"
+                type="button"
+                aria-controls="nav-menu"
+                aria-expanded="false"
+                data-content-attr="aria-label:nav.openMenu"
+              >
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+              </button>
+
+              <div class="nav-overlay" id="nav-overlay" hidden></div>
+
+              <div class="nav-drawer" id="nav-menu">
+                <button
+                  class="nav-close"
+                  id="nav-close"
+                  type="button"
+                  data-content-attr="aria-label:nav.closeMenu"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      d="m13.06 12 6.47-6.47-1.06-1.06L12 10.94 5.53 4.47 4.47 5.53 10.94 12l-6.47 6.47 1.06 1.06L12 13.06l6.47 6.47 1.06-1.06L13.06 12Z"
+                    />
+                  </svg>
+                </button>
+
+                <div class="nav-drawer-phone">
+                  <p data-content="location.label"></p>
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-content="location.address"
+                    data-content-attr="href:location.mapsHref"
+                  ></a>
+                </div>
+
+                <ul class="nav-list" data-content-list="nav.items"></ul>
+              </div>
+            </nav>
+
+            <div class="header-actions">
+              <a
+                class="appointment-btn"
+                href="/foglalas"
+                aria-current="page"
+                data-content-attr="href:actions.appointment.href"
+              >
+                <span class="appointment-icon" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="currentColor"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5zM8 12h8v1.5H8V12zm0 3.5h8V17H8v-1.5zm0-7h4V10H8V8.5z"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="appointment-label"
+                  data-content="actions.appointment.label"
+                ></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main
+      class="booking-page"
+      id="foglalas"
+      data-content-attr="aria-label:booking.ariaLabel"
+    >
+      <div class="booking-page__inner">
+        <section class="booking-hero">
+          <div class="booking-hero__eyebrow">
+            <p data-content="booking.eyebrow"></p>
+            <span class="booking-hero__line" aria-hidden="true"></span>
+          </div>
+          <h1 class="booking-hero__heading" id="booking-heading">
+            <mark data-content="booking.headingHighlight"></mark
+            ><span data-content="booking.headingRest"></span>
+          </h1>
+          <p class="booking-hero__intro" data-content="booking.intro"></p>
+        </section>
+
+        <section class="booking-grid">
+          <div class="booking-calendar card-surface">
+            <div class="booking-calendar__header">
+              <h2 class="booking-calendar__title">
+                <span id="booking-month-label"></span>
+              </h2>
+              <div class="booking-calendar__nav">
+                <button
+                  type="button"
+                  id="booking-prev-month"
+                  data-content-attr="aria-label:booking.prevMonth"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m15 18-6-6 6-6"
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  id="booking-next-month"
+                  data-content-attr="aria-label:booking.nextMonth"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m9 18 6-6-6-6"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="booking-calendar__weekdays" id="booking-weekdays"></div>
+            <div class="booking-calendar__days" id="booking-days"></div>
+            <div class="booking-calendar__legend">
+              <span
+                ><i class="dot dot--available"></i>
+                <span data-content="booking.legendAvailable"></span
+              ></span>
+              <span
+                ><i class="dot dot--empty"></i>
+                <span data-content="booking.legendEmpty"></span
+              ></span>
+              <span
+                class="booking-calendar__place"
+                data-content="location.address"
+              ></span>
+            </div>
+          </div>
+
+          <div class="booking-slots card-surface card-surface--dark">
+            <h2 class="booking-slots__title">
+              <span data-content="booking.slotsTitle"></span>
+            </h2>
+            <p class="booking-slots__date" id="booking-selected-date"></p>
+            <div class="booking-slots__list" id="booking-slots-list"></div>
+
+            <form class="booking-form" id="booking-form" novalidate>
+              <div class="booking-form__row">
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  autocomplete="name"
+                  data-content-attr="placeholder:booking.form.namePlaceholder"
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  autocomplete="tel"
+                  data-content-attr="placeholder:booking.form.phonePlaceholder"
+                />
+              </div>
+              <input
+                type="email"
+                name="email"
+                required
+                autocomplete="email"
+                data-content-attr="placeholder:booking.form.emailPlaceholder"
+              />
+              <button
+                type="submit"
+                class="booking-form__submit"
+                id="booking-submit"
+                disabled
+                data-content="booking.form.submitIdle"
+              ></button>
+              <p
+                class="booking-form__success"
+                id="booking-success"
+                hidden
+              ></p>
+              <p
+                class="booking-form__error"
+                id="booking-error"
+                hidden
+                role="alert"
+              ></p>
+            </form>
+          </div>
+        </section>
+
+        <section class="booking-info" data-content-list="booking.info"></section>
+      </div>
+    </main>
+
+    <footer class="booking-footer">
+      <p>
+        © <span id="booking-year"></span>
+        <span data-content="meta.siteTitle"></span> ·
+        <span data-content="location.address"></span>
+      </p>
+    </footer>
+
+    <script src="/js/content.js" defer></script>
+    <script src="/js/nav.js" defer></script>
+    <script src="/js/booking.js" defer></script>
+  </body>
+</html>

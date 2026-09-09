@@ -1,0 +1,63 @@
+{
+  "booking": {
+    "documentTitle": "Online Foglalás – J.B Konga by Kitti",
+    "ariaLabel": "Online foglalás",
+    "closeLabel": "Foglalás bezárása",
+    "eyebrow": "Konga® – Online Foglalás",
+    "headingHighlight": "Foglalj",
+    "headingRest": " helyet a következő edzésre.",
+    "intro": "Kedd 19:30 és csütörtök 18:30 – Konga tánc, maximum 10 fő. Legfeljebb 2 hónapra előre foglalhatsz. A visszaigazolást e-mailben küldjük.",
+    "prevMonth": "Előző hónap",
+    "nextMonth": "Következő hónap",
+    "weekdays": ["H", "K", "Sze", "Cs", "P", "Szo", "V"],
+    "months": [
+      "Január",
+      "Február",
+      "Március",
+      "Április",
+      "Május",
+      "Június",
+      "Július",
+      "Augusztus",
+      "Szeptember",
+      "Október",
+      "November",
+      "December"
+    ],
+    "legendAvailable": "Van óra",
+    "legendEmpty": "Nincs edzés",
+    "slotsTitle": "Válassz időpontot",
+    "slotsEmpty": "Ezen a napon nincs elérhető edzés.",
+    "slotsLoading": "Időpontok betöltése…",
+    "slotsError": "Nem sikerült betölteni az időpontokat. Frissítsd az oldalt.",
+    "instructorPrefix": "Oktató:",
+    "spotsSuffix": "hely",
+    "fullLabel": "Betelt",
+    "form": {
+      "namePlaceholder": "Teljes név",
+      "phonePlaceholder": "Telefonszám",
+      "emailPlaceholder": "E-mail cím",
+      "submitIdle": "Válassz időpontot a foglaláshoz",
+      "submitReady": "Foglalás megerősítése",
+      "submitBusy": "Foglalás folyamatban…",
+      "success": "Köszönjük! A foglalásodat rögzítettük. A visszaigazolást e-mailben küldjük.",
+      "errorGeneric": "A foglalás nem sikerült. Próbáld újra.",
+      "errorFull": "Ez az időpont betelt. Válassz másikat.",
+      "errorInvalid": "Érvénytelen adat. Ellenőrizd a megadott információkat."
+    },
+    "info": [
+      {
+        "title": "Lemondás",
+        "text": "Az edzés előtt 4 órával díjmentesen lemondhatod a foglalásod."
+      },
+      {
+        "title": "Érkezés",
+        "text": "Kérünk, érkezz 10 perccel a kezdés előtt a bemelegítéshez."
+      },
+      {
+        "title": "Felszerelés",
+        "text": "Kényelmes sportruházat, beltéri cipő és törölköző szükséges."
+      }
+    ]
+  }
+}

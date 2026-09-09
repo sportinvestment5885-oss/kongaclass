@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "lang": "hu",
+    "siteTitle": "J.B Konga by Kitti",
+    "documentTitle": "J.B Konga by Kitti"
+  },
+  "nav": {
+    "ariaLabel": "Főnavigáció",
+    "openMenu": "Menü megnyitása",
+    "closeMenu": "Menü bezárása",
+    "items": [
+      { "id": "home", "label": "Kezdőlap", "href": "/" },
+      { "id": "about", "label": "Bemutatkozás", "href": "/#rolunk" },
+      { "id": "gallery", "label": "Galéria", "href": "/#galeria" }
+    ]
+  },
+  "location": {
+    "label": "Helyszín",
+    "address": "Baja, Szegedi út 9",
+    "mapsHref": "https://www.google.com/maps/search/?api=1&query=46.184677712218225%2C18.95779771636102"
+  },
+  "search": {
+    "label": "Keresés",
+    "placeholder": "Keresés...",
+    "expand": "Kereső megnyitása",
+    "submit": "Keresés indítása"
+  },
+  "actions": {
+    "appointment": {
+      "label": "Online foglalás",
+      "href": "/foglalas"
+    }
+  },
+  "footer": {
+    "tagline": "Konga® edzések Baján – tánc, box, kardió és alakformálás egy ritmusban.",
+    "navAriaLabel": "Lábléc navigáció",
+    "locationHeading": "Helyszín",
+    "copyrightSuffix": "Minden jog fenntartva."
+  }
+}
