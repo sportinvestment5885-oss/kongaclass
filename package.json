@@ -1,7 +1,7 @@
 {
   "name": "konga-kitti-web",
   "version": "1.0.0",
-  "description": "J.B Konga by Kitti — Express site with JSON booking store",
+  "description": "Konga Kittivel — Express site with JSON booking store",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
