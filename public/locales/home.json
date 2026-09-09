@@ -6,7 +6,7 @@
     "subheading": "Táncos koreográfiák, boxos kombinációk, intenzív kardió és alakformáló gyakorlatok egyetlen lendületes edzésben.",
     "scheduleAria": "Edzésidőpontok",
     "scheduleTue": "Kedd 19:30",
-    "scheduleThu": "Csütörtök 18:30",
+    "scheduleThu": "Csütörtök 19:30",
     "cta": {
       "label": "Magamról",
       "href": "#rolunk"
@@ -122,10 +122,10 @@
         "extra": true
       },
       {
-        "id": "9",
+        "id": "10",
         "type": "video",
-        "src": "/videos/kongavideo4.mp4",
-        "label": "Konga videó 4",
+        "src": "/videos/kongavideo5.mp4",
+        "label": "Konga videó 5",
         "aspect": "wide",
         "extra": true
       }

@@ -188,6 +188,18 @@
     selectedDateKey = key;
     selectedSlot = null;
     setFormMessage(null);
+
+    const slots = scheduleByDate[key] || [];
+    const openSlots = slots.filter((slot) => !slot.full);
+    if (openSlots.length === 1) {
+      const only = openSlots[0];
+      selectedSlot = {
+        date: key,
+        time: only.time,
+        title: only.title,
+      };
+    }
+
     renderCalendar();
     renderSlots();
     updateSubmitState();
@@ -372,17 +384,19 @@
       const data = await res.json().catch(() => ({}));
 
       if (!res.ok) {
+        const errorMessages = {
+          full: b?.form?.errorFull,
+          invalid_name: b?.form?.errorName,
+          invalid_phone: b?.form?.errorPhone,
+          invalid_email: b?.form?.errorEmail,
+          invalid_slot: b?.form?.errorSlot,
+        };
         const msg =
-          data.error === "full"
-            ? b?.form?.errorFull
-            : data.error === "invalid_slot" ||
-                data.error === "invalid_name" ||
-                data.error === "invalid_phone" ||
-                data.error === "invalid_email"
-              ? b?.form?.errorInvalid
-              : b?.form?.errorGeneric;
+          errorMessages[data.error] ||
+          b?.form?.errorInvalid ||
+          b?.form?.errorGeneric;
         setFormMessage("error", msg || "Error");
-        if (data.error === "full") {
+        if (data.error === "full" || data.error === "invalid_slot") {
           await loadSlots();
           renderCalendar();
           renderSlots();

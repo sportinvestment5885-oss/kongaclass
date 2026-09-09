@@ -6,7 +6,7 @@
     "eyebrow": "Konga® – Online Foglalás",
     "headingHighlight": "Foglalj",
     "headingRest": " helyet a következő edzésre.",
-    "intro": "Kedd 19:30 és csütörtök 18:30 – Konga tánc, maximum 10 fő. Legfeljebb 2 hónapra előre foglalhatsz. A visszaigazolást e-mailben küldjük.",
+    "intro": "Kedd és csütörtök 19:30 – Konga tánc, maximum 10 fő. Legfeljebb 2 hónapra előre foglalhatsz. A visszaigazolást e-mailben küldjük.",
     "prevMonth": "Előző hónap",
     "nextMonth": "Következő hónap",
     "weekdays": ["H", "K", "Sze", "Cs", "P", "Szo", "V"],
@@ -35,7 +35,7 @@
     "fullLabel": "Betelt",
     "form": {
       "namePlaceholder": "Teljes név",
-      "phonePlaceholder": "Telefonszám",
+      "phonePlaceholder": "Telefonszám (nem kötelező)",
       "emailPlaceholder": "E-mail cím",
       "submitIdle": "Válassz időpontot a foglaláshoz",
       "submitReady": "Foglalás megerősítése",
@@ -43,7 +43,11 @@
       "success": "Köszönjük! A foglalásodat rögzítettük. A visszaigazolást e-mailben küldjük.",
       "errorGeneric": "A foglalás nem sikerült. Próbáld újra.",
       "errorFull": "Ez az időpont betelt. Válassz másikat.",
-      "errorInvalid": "Érvénytelen adat. Ellenőrizd a megadott információkat."
+      "errorInvalid": "Érvénytelen adat. Ellenőrizd a megadott információkat.",
+      "errorName": "Add meg a neved (legalább 2 karakter).",
+      "errorPhone": "Ha megadsz telefonszámot, legyen legalább 6 karakter. Üresen is hagyhatod.",
+      "errorEmail": "Érvényes e-mail címet adj meg.",
+      "errorSlot": "Ez az időpont már nem foglalható. Válassz másikat."
     },
     "info": [
       {
@@ -56,7 +60,7 @@
       },
       {
         "title": "Felszerelés",
-        "text": "Kényelmes sportruházat, beltéri cipő és törölköző szükséges."
+        "text": "Kényelmes sportruházat, beltéri cipő, törölköző és jóga matrac szükséges."
       }
     ]
   }

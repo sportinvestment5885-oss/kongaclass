@@ -35,7 +35,7 @@ function registerBookingRoutes(app) {
       if (!name || name.length < 2) {
         return res.status(400).json({ error: "invalid_name" });
       }
-      if (!phone || phone.length < 6) {
+      if (phone && phone.length < 6) {
         return res.status(400).json({ error: "invalid_phone" });
       }
       if (!isValidEmail(email)) {
