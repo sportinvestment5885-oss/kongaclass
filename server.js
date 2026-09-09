@@ -1,5 +1,5 @@
 /**
- * Express server — static site + booking API (SQLite).
+ * Express server — static site + booking API.
  * Binds to process.env.PORT for Railway, falls back to 5050 locally.
  */
 require("dotenv").config({ quiet: true });
@@ -17,7 +17,7 @@ const PUBLIC_DIR = path.join(__dirname, "public");
 try {
   getDb();
 } catch (err) {
-  console.error("[startup] Failed to open SQLite database:", err);
+  console.error("[startup] Failed to open booking store:", err);
   process.exit(1);
 }
 
