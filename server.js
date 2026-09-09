@@ -30,7 +30,13 @@ try {
 
 const express = require("express");
 const { getDb } = require("./lib/db");
-const { getSmtpConfig, getInstructorEmail } = require("./lib/config");
+const {
+  getSmtpConfig,
+  getInstructorEmail,
+  getEmailProviderName,
+  getEmailFrom,
+  getResendApiKey,
+} = require("./lib/config");
 const { registerBookingRoutes } = require("./routes/bookings");
 
 const app = express();
@@ -48,7 +54,9 @@ try {
 
 const smtp = getSmtpConfig();
 console.log(
-  `[startup] email configured=${Boolean(smtp.user && smtp.pass)} user=${smtp.user || "MISSING"} instructor=${getInstructorEmail()} host=${smtp.host}:${smtp.port}`
+  `[startup] email provider=${getEmailProviderName()} configured=${Boolean(
+    getResendApiKey() || (smtp.user && smtp.pass)
+  )} user=${smtp.user || "MISSING"} instructor=${getInstructorEmail()} from=${getEmailFrom()} host=${smtp.host}:${smtp.port}`
 );
 
 app.use(express.json({ limit: "32kb" }));
@@ -63,17 +71,20 @@ app.get("/foglalas", (_req, res) => {
 });
 
 app.get("/health", (_req, res) => {
-  const smtp = getSmtpConfig();
+  const smtpCfg = getSmtpConfig();
   res.status(200).json({
     ok: true,
     email: {
-      configured: Boolean(smtp.user && smtp.pass),
-      user: smtp.user || null,
+      provider: getEmailProviderName(),
+      configured: Boolean(getResendApiKey() || (smtpCfg.user && smtpCfg.pass)),
+      resend: Boolean(getResendApiKey()),
+      user: smtpCfg.user || null,
+      from: getEmailFrom(),
       instructor: getInstructorEmail(),
-      host: smtp.host,
-      port: smtp.port,
-      passSet: Boolean(smtp.pass),
-      passLen: smtp.pass ? smtp.pass.length : 0,
+      host: smtpCfg.host,
+      port: smtpCfg.port,
+      passSet: Boolean(smtpCfg.pass),
+      passLen: smtpCfg.pass ? smtpCfg.pass.length : 0,
     },
   });
 });
