@@ -9,16 +9,15 @@ COPY server.js ./
 COPY lib ./lib
 COPY routes ./routes
 COPY public ./public
-COPY docker-entrypoint.sh ./
 
-RUN mkdir -p /app/data \
-  && chmod +x /app/docker-entrypoint.sh \
-  && chown -R node:node /app
+RUN mkdir -p /app/data && chown -R node:node /app
 
-ENV PORT=5050
+ENV NODE_ENV=production
+ENV PORT=8080
 ENV DB_PATH=/app/data/bookings.json
 ENV HOST=0.0.0.0
-EXPOSE 5050
+EXPOSE 8080
 
-ENTRYPOINT ["/app/docker-entrypoint.sh"]
+USER node
+
 CMD ["node", "server.js"]
