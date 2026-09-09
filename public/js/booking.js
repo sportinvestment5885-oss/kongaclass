@@ -375,11 +375,15 @@
     updateSubmitState();
     setFormMessage(null);
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 20000);
+
     try {
       const res = await fetch("/api/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
+        signal: controller.signal,
       });
       const data = await res.json().catch(() => ({}));
 
@@ -413,8 +417,16 @@
       renderSlots();
     } catch (err) {
       console.error(err);
-      setFormMessage("error", b?.form?.errorGeneric || "Error");
+      const timedOut = err && err.name === "AbortError";
+      setFormMessage(
+        "error",
+        timedOut
+          ? b?.form?.errorTimeout ||
+              "A foglalás túl sokáig tartott. Frissítsd az oldalt, és nézd meg, sikerült-e."
+          : b?.form?.errorGeneric || "Error"
+      );
     } finally {
+      clearTimeout(timeoutId);
       submitting = false;
       updateSubmitState();
     }

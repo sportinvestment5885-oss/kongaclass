@@ -47,7 +47,8 @@
       "errorName": "Add meg a neved (legalább 2 karakter).",
       "errorPhone": "Ha megadsz telefonszámot, legyen legalább 6 karakter. Üresen is hagyhatod.",
       "errorEmail": "Érvényes e-mail címet adj meg.",
-      "errorSlot": "Ez az időpont már nem foglalható. Válassz másikat."
+      "errorSlot": "Ez az időpont már nem foglalható. Válassz másikat.",
+      "errorTimeout": "A foglalás túl sokáig tartott. Frissítsd az oldalt, és nézd meg, sikerült-e."
     },
     "info": [
       {

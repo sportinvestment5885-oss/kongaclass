@@ -30,6 +30,7 @@ try {
 
 const express = require("express");
 const { getDb } = require("./lib/db");
+const { getSmtpConfig, getInstructorEmail } = require("./lib/config");
 const { registerBookingRoutes } = require("./routes/bookings");
 
 const app = express();
@@ -45,6 +46,11 @@ try {
   process.exit(1);
 }
 
+const smtp = getSmtpConfig();
+console.log(
+  `[startup] email configured=${Boolean(smtp.user && smtp.pass)} user=${smtp.user || "MISSING"} instructor=${getInstructorEmail()} host=${smtp.host}:${smtp.port}`
+);
+
 app.use(express.json({ limit: "32kb" }));
 app.use(express.urlencoded({ extended: false }));
 
@@ -57,7 +63,19 @@ app.get("/foglalas", (_req, res) => {
 });
 
 app.get("/health", (_req, res) => {
-  res.status(200).json({ ok: true });
+  const smtp = getSmtpConfig();
+  res.status(200).json({
+    ok: true,
+    email: {
+      configured: Boolean(smtp.user && smtp.pass),
+      user: smtp.user || null,
+      instructor: getInstructorEmail(),
+      host: smtp.host,
+      port: smtp.port,
+      passSet: Boolean(smtp.pass),
+      passLen: smtp.pass ? smtp.pass.length : 0,
+    },
+  });
 });
 
 app.get("*", (req, res) => {

@@ -58,23 +58,23 @@ function registerBookingRoutes(app) {
         return res.status(409).json({ error: result.error || "full" });
       }
 
-      let emailResult = { sent: false };
-      try {
-        emailResult = await sendBookingEmails(result.booking);
-      } catch (mailErr) {
-        console.error("[api/bookings] email failed", mailErr);
-        emailResult = { sent: false, reason: "email_failed" };
-      }
-
-      return res.status(201).json({
+      // Respond first so the UI never hangs on SMTP.
+      res.status(201).json({
         ok: true,
         booking: {
           id: result.booking.id,
           date: result.booking.date,
           time: result.booking.time,
         },
-        emailSent: Boolean(emailResult.sent),
+        emailQueued: true,
       });
+
+      setImmediate(() => {
+        sendBookingEmails(result.booking).catch((mailErr) => {
+          console.error("[api/bookings] email failed", mailErr);
+        });
+      });
+      return;
     } catch (err) {
       console.error("[api/bookings]", err);
       return res.status(500).json({ error: "server_error" });
