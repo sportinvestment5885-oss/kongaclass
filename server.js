@@ -31,11 +31,12 @@ try {
 const express = require("express");
 const { getDb } = require("./lib/db");
 const {
-  getSmtpConfig,
   getInstructorEmail,
   getEmailProviderName,
   getEmailFrom,
+  getGmailOAuthConfig,
   getResendApiKey,
+  getStudioEmail,
 } = require("./lib/config");
 const { registerBookingRoutes } = require("./routes/bookings");
 
@@ -52,11 +53,9 @@ try {
   process.exit(1);
 }
 
-const smtp = getSmtpConfig();
+const oauth = getGmailOAuthConfig();
 console.log(
-  `[startup] email provider=${getEmailProviderName()} configured=${Boolean(
-    getResendApiKey() || (smtp.user && smtp.pass)
-  )} user=${smtp.user || "MISSING"} instructor=${getInstructorEmail()} from=${getEmailFrom()} host=${smtp.host}:${smtp.port}`
+  `[startup] email provider=${getEmailProviderName()} oauth=${oauth.configured} user=${oauth.user || "MISSING"} instructor=${getInstructorEmail()} from=${getEmailFrom()}`
 );
 
 app.use(express.json({ limit: "32kb" }));
@@ -71,20 +70,20 @@ app.get("/foglalas", (_req, res) => {
 });
 
 app.get("/health", (_req, res) => {
-  const smtpCfg = getSmtpConfig();
+  const oauthCfg = getGmailOAuthConfig();
   res.status(200).json({
     ok: true,
     email: {
       provider: getEmailProviderName(),
-      configured: Boolean(getResendApiKey() || (smtpCfg.user && smtpCfg.pass)),
+      configured: Boolean(oauthCfg.configured || getResendApiKey()),
+      gmailOAuth: oauthCfg.configured,
       resend: Boolean(getResendApiKey()),
-      user: smtpCfg.user || null,
+      user: oauthCfg.user || getStudioEmail(),
       from: getEmailFrom(),
       instructor: getInstructorEmail(),
-      host: smtpCfg.host,
-      port: smtpCfg.port,
-      passSet: Boolean(smtpCfg.pass),
-      passLen: smtpCfg.pass ? smtpCfg.pass.length : 0,
+      clientIdSet: Boolean(oauthCfg.clientId),
+      clientSecretSet: Boolean(oauthCfg.clientSecret),
+      refreshTokenSet: Boolean(oauthCfg.refreshToken),
     },
   });
 });
