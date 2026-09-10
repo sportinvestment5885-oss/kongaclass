@@ -61,8 +61,7 @@
     "badgeName": "Kitti",
     "stats": [
       { "value": "6+", "label": "év tapasztalat" },
-      { "value": "4", "label": "óratípus" },
-      { "value": "500+", "label": "elégedett vendég" }
+      { "value": "200+", "label": "óra" }
     ],
     "cta": {
       "label": "Foglalj próbaórát",
