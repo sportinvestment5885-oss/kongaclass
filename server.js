@@ -99,8 +99,13 @@ const server = app.listen(PORT, HOST, () => {
   console.log(`Server running on http://${HOST}:${PORT}`);
 });
 
+server.on("error", (err) => {
+  console.error("[startup] listen failed:", err);
+  process.exit(1);
+});
+
 function shutdown(signal) {
-  console.log(`[shutdown] ${signal} received`);
+  console.log(`[shutdown] ${signal} received — Railway is stopping/replacing this container`);
   server.close(() => process.exit(0));
   setTimeout(() => process.exit(0), 5000).unref();
 }
