@@ -329,12 +329,6 @@
         }
 
         card.appendChild(video);
-        if (item.label) {
-          const label = document.createElement("p");
-          label.className = "gallery-card__caption";
-          label.textContent = item.label;
-          card.appendChild(label);
-        }
       } else if (hasMedia && !isVideo) {
         const img = document.createElement("img");
         img.className = "gallery-card__media";
@@ -342,19 +336,11 @@
         img.alt = item.label || "";
         img.loading = "lazy";
         card.appendChild(img);
-        if (item.label) {
-          const label = document.createElement("p");
-          label.className = "gallery-card__caption";
-          label.textContent = item.label;
-          card.appendChild(label);
-        }
       } else {
         card.innerHTML = `
           ${isVideo ? videoSvg : imageSvg}
-          <p class="gallery-card__label"></p>
           <span class="gallery-card__hint"></span>
         `;
-        card.querySelector(".gallery-card__label").textContent = item.label || "";
         card.querySelector(".gallery-card__hint").textContent = item.hint || "";
       }
 
