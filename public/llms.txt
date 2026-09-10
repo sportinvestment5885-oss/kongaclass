@@ -1,0 +1,37 @@
+# Konga Kittivel
+
+> Konga® fitness classes in Baja, Hungary (HU). Dance, boxing, cardio and sculpting in one high-energy workout. Instructor: Kitti. Small groups, beginners welcome.
+
+## Site
+
+- Home: https://kongakittivel.hu/
+- Online booking: https://kongakittivel.hu/foglalas
+- Facebook: https://www.facebook.com/profile.php?id=61579637080513
+
+## Location
+
+- Address: Baja, Szegedi út 9, Hungary (6500)
+- Map: https://www.google.com/maps/search/?api=1&query=46.184677712218225%2C18.95779771636102
+
+## Schedule
+
+- Tuesday 19:30–20:30
+- Thursday 19:30–20:30
+- Capacity: max 10 people per class
+- Booking window: up to 2 months ahead
+
+## Contact
+
+- Email: konkolykitty@gmail.com
+- Booking confirmations are sent by email
+
+## Brand
+
+- Brand name: Konga Kittivel
+- Activity: Konga® group fitness / dance cardio
+- Language of the website: Hungarian (hu)
+
+## Optional
+
+- Sitemap: https://kongakittivel.hu/sitemap.xml
+- Robots: https://kongakittivel.hu/robots.txt

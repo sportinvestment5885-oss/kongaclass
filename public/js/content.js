@@ -1,12 +1,13 @@
 /**
  * Website content loader
  * Sources:
- *   /locales/content.json  → site chrome (meta, nav, location, search, actions)
+ *   /locales/content.json  → site chrome (meta, nav, location, social, actions)
  *   /locales/home.json     → homepage (hero + services)
- *   /locales/booking.json  → online booking modal copy + schedule
+ *   /locales/booking.json  → online booking page copy + schedule
  *
  * - Fills [data-content] text nodes
  * - Fills [data-content-attr] attributes
+ * - Applies SEO meta / Open Graph / JSON-LD
  * - Renders lists from JSON (nav items, service cards)
  */
 (function () {
@@ -29,15 +30,125 @@
     return res.json();
   }
 
+  function upsertMeta(attr, key, value) {
+    if (value == null || value === "") return;
+    let el = document.head.querySelector(`meta[${attr}="${key}"]`);
+    if (!el) {
+      el = document.createElement("meta");
+      el.setAttribute(attr, key);
+      document.head.appendChild(el);
+    }
+    el.setAttribute("content", String(value));
+  }
+
+  function upsertLink(rel, href) {
+    if (!href) return;
+    let el = document.head.querySelector(`link[rel="${rel}"]`);
+    if (!el) {
+      el = document.createElement("link");
+      el.setAttribute("rel", rel);
+      document.head.appendChild(el);
+    }
+    el.setAttribute("href", href);
+  }
+
+  function absoluteUrl(siteUrl, path) {
+    if (!path) return "";
+    if (/^https?:\/\//i.test(path)) return path;
+    const base = (siteUrl || "https://kongakittivel.hu").replace(/\/$/, "");
+    return `${base}${path.startsWith("/") ? path : `/${path}`}`;
+  }
+
+  function applySeo(content) {
+    const meta = content.meta || {};
+    const onBookingPage = /foglalas/i.test(location.pathname);
+    const siteUrl = (meta.siteUrl || "https://kongakittivel.hu").replace(
+      /\/$/,
+      ""
+    );
+    const title = onBookingPage
+      ? content.booking?.documentTitle || meta.documentTitle
+      : meta.documentTitle;
+    const description = onBookingPage
+      ? content.booking?.description || meta.description
+      : meta.description;
+    const canonical = onBookingPage ? `${siteUrl}/foglalas` : `${siteUrl}/`;
+    const ogImage = absoluteUrl(siteUrl, meta.ogImage);
+
+    if (title) document.title = title;
+    if (meta.lang) document.documentElement.lang = meta.lang;
+
+    upsertMeta("name", "description", description);
+    upsertMeta("name", "keywords", meta.keywords);
+    upsertMeta("name", "author", meta.siteTitle || "Konga Kittivel");
+    upsertMeta("property", "og:title", title);
+    upsertMeta("property", "og:description", description);
+    upsertMeta("property", "og:url", canonical);
+    upsertMeta("property", "og:image", ogImage);
+    upsertMeta("property", "og:image:alt", meta.ogImageAlt);
+    upsertMeta("property", "og:site_name", meta.siteTitle || "Konga Kittivel");
+    upsertMeta("property", "og:locale", "hu_HU");
+    upsertMeta("name", "twitter:title", title);
+    upsertMeta("name", "twitter:description", description);
+    upsertMeta("name", "twitter:image", ogImage);
+    upsertLink("canonical", canonical);
+
+    const jsonLdEl = document.getElementById("seo-jsonld");
+    if (jsonLdEl && !onBookingPage) {
+      const sameAs = [];
+      if (content.social?.facebook?.href) sameAs.push(content.social.facebook.href);
+      const payload = {
+        "@context": "https://schema.org",
+        "@type": "SportsActivityLocation",
+        name: meta.siteTitle || "Konga Kittivel",
+        alternateName: "Konga® edzés Baja",
+        description:
+          meta.description ||
+          "Konga® edzések Baján – tánc, box, kardió és alakformálás.",
+        url: `${siteUrl}/`,
+        image: ogImage,
+        email: meta.email || undefined,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: meta.streetAddress || "Szegedi út 9",
+          addressLocality: meta.addressLocality || "Baja",
+          postalCode: meta.postalCode || "6500",
+          addressCountry: meta.addressCountry || "HU",
+        },
+        geo: meta.geo
+          ? {
+              "@type": "GeoCoordinates",
+              latitude: meta.geo.latitude,
+              longitude: meta.geo.longitude,
+            }
+          : undefined,
+        sameAs,
+        openingHoursSpecification: [
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: "Tuesday",
+            opens: "19:30",
+            closes: "20:30",
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: "Thursday",
+            opens: "19:30",
+            closes: "20:30",
+          },
+        ],
+        potentialAction: {
+          "@type": "ReserveAction",
+          target: `${siteUrl}/foglalas`,
+          name: "Online foglalás",
+        },
+      };
+      jsonLdEl.textContent = JSON.stringify(payload);
+    }
+  }
+
   function applyStaticContent(content) {
     document.documentElement.lang = content.meta?.lang || "hu";
-
-    const onBookingPage = /foglalas/i.test(location.pathname);
-    if (onBookingPage && content.booking?.documentTitle) {
-      document.title = content.booking.documentTitle;
-    } else if (content.meta?.documentTitle) {
-      document.title = content.meta.documentTitle;
-    }
 
     document.querySelectorAll("[data-content]").forEach((el) => {
       const key = el.getAttribute("data-content");
@@ -306,6 +417,7 @@
   }
 
   function applyContent(content) {
+    applySeo(content);
     applyStaticContent(content);
     renderNav(content);
     renderFacebookLinks(content);

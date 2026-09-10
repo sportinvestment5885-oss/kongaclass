@@ -4,4 +4,23 @@ Allow: /
 Disallow: /api/
 Disallow: /health
 
+# AI / LLM crawlers — allowed for discovery
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 Sitemap: https://kongakittivel.hu/sitemap.xml
