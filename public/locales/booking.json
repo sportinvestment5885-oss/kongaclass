@@ -1,6 +1,7 @@
 {
   "booking": {
-    "documentTitle": "Online Foglalás – Konga Kittivel",
+    "documentTitle": "Online foglalás | Konga edzés Baja – Konga Kittivel",
+    "description": "Foglalj helyet Konga® edzésre Baján. Kedd és csütörtök 19:30, maximum 10 fő. Visszaigazolás e-mailben.",
     "ariaLabel": "Online foglalás",
     "closeLabel": "Foglalás bezárása",
     "eyebrow": "Konga® – Online Foglalás",

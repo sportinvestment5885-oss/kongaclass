@@ -312,11 +312,32 @@ button {
   color: var(--color-accent);
 }
 
+.header-facebook {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  color: #1877f2;
+  transition: color var(--transition), transform var(--transition);
+}
+
+.header-facebook svg {
+  width: 36px;
+  height: 36px;
+}
+
+.header-facebook:hover,
+.header-facebook:focus-visible {
+  color: #0f5fbf;
+  transform: translateY(-1px);
+}
+
 /* --- Search + Appointment --- */
 .header-actions {
   flex: 0 0 auto;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-end;
   gap: var(--actions-gap);
   margin-left: auto;

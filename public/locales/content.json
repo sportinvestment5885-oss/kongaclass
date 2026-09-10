@@ -2,7 +2,21 @@
   "meta": {
     "lang": "hu",
     "siteTitle": "Konga Kittivel",
-    "documentTitle": "Konga Kittivel"
+    "documentTitle": "Konga edzés Baja | Konga Kittivel",
+    "description": "Konga® edzések Baján – tánc, box, kardió és alakformálás egy ritmusban. Kedd és csütörtök 19:30, kis létszám, próbaóra foglalható online.",
+    "siteUrl": "https://kongakittivel.hu",
+    "ogImage": "/images/instructor-profile-professional.jpg",
+    "ogImageAlt": "Kitti, Konga® oktató Baján",
+    "keywords": "konga, konga edzés, konga baja, táncos edzés, kardió, próbaóra, Konga Kittivel",
+    "email": "konkolykitty@gmail.com",
+    "geo": {
+      "latitude": 46.184677712218225,
+      "longitude": 18.95779771636102
+    },
+    "streetAddress": "Szegedi út 9",
+    "addressLocality": "Baja",
+    "addressCountry": "HU",
+    "postalCode": "6500"
   },
   "nav": {
     "ariaLabel": "Főnavigáció",
@@ -29,6 +43,12 @@
     "appointment": {
       "label": "Online foglalás",
       "href": "/foglalas"
+    }
+  },
+  "social": {
+    "facebook": {
+      "href": "https://www.facebook.com/profile.php?id=61579637080513",
+      "label": "Facebook"
     }
   },
   "footer": {

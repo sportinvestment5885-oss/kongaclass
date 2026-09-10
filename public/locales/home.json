@@ -81,34 +81,52 @@
         "id": "1",
         "type": "image",
         "src": "/images/fitness1.jpg",
-        "label": "Konga fitness",
+        "label": "Konga fitness edzés Baján",
         "aspect": "portrait"
       },
       {
         "id": "2",
         "type": "video",
         "src": "/videos/home-loop.mp4",
-        "label": "Konga hangulat",
+        "label": "Konga óra hangulata – ritmus és mozgás",
         "aspect": "wide",
         "loop": true,
         "muted": true,
         "autoplay": true
       },
-      { "id": "3", "type": "image", "src": "/images/fullclass.jpg", "label": "Konga óra", "aspect": "portrait" },
+      {
+        "id": "3",
+        "type": "image",
+        "src": "/images/fullclass.jpg",
+        "label": "Teljes Konga csoportóra a teremben",
+        "aspect": "portrait"
+      },
       {
         "id": "4",
         "type": "video",
         "src": "/videos/kongavideo1.mp4",
-        "label": "Konga edzés",
+        "label": "Konga edzés videó – tánc és kardió",
         "aspect": "wide"
       },
-      { "id": "5", "type": "image", "src": "/images/fitness3.jpg", "label": "Konga energia", "aspect": "portrait" },
-      { "id": "6", "type": "image", "src": "/images/konga5.jpg", "label": "Konga pillanat", "aspect": "portrait" },
+      {
+        "id": "5",
+        "type": "image",
+        "src": "/images/fitness3.jpg",
+        "label": "Energikus Konga pillanat az órán",
+        "aspect": "portrait"
+      },
+      {
+        "id": "6",
+        "type": "image",
+        "src": "/images/konga5.jpg",
+        "label": "Konga résztvevők Baján",
+        "aspect": "portrait"
+      },
       {
         "id": "7",
         "type": "video",
         "src": "/videos/kongavideo2.mp4",
-        "label": "Konga videó 2",
+        "label": "Konga edzés részlet – koreográfia",
         "aspect": "wide",
         "extra": true
       },
@@ -116,7 +134,7 @@
         "id": "8",
         "type": "video",
         "src": "/videos/kongavideo3.mp4",
-        "label": "Konga videó 3",
+        "label": "Konga edzés részlet – box és mozgás",
         "aspect": "wide",
         "extra": true
       },
@@ -124,7 +142,7 @@
         "id": "10",
         "type": "video",
         "src": "/videos/kongavideo5.mp4",
-        "label": "Konga videó 5",
+        "label": "Konga edzés részlet – csoportos óra",
         "aspect": "wide",
         "extra": true
       }

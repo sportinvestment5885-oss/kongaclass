@@ -1,7 +1,6 @@
 /**
  * Navigation interactions
  * - Mobile hamburger drawer open/close (focus trap + Escape)
- * - Expandable search field
  * - Labels always come from window.__content (locales/content.json)
  */
 (function () {
@@ -12,9 +11,6 @@
   const closeBtn = document.getElementById("nav-close");
   const drawer = document.getElementById("nav-menu");
   const overlay = document.getElementById("nav-overlay");
-  const searchForm = document.querySelector(".top-search");
-  const searchToggle = document.getElementById("search-toggle");
-  const searchInput = document.getElementById("site-search");
 
   if (!nav || !toggle || !drawer) return;
 
@@ -174,11 +170,6 @@
     if (isMenuOpen()) {
       event.preventDefault();
       closeMenu();
-      return;
-    }
-
-    if (searchForm?.classList.contains("is-open")) {
-      collapseSearch();
     }
   });
 
@@ -211,53 +202,6 @@
   } else {
     mq.addListener(handleBreakpoint);
   }
-
-  function expandSearch() {
-    if (!searchForm || !searchInput || !searchToggle) return;
-
-    searchForm.classList.add("is-open");
-    searchToggle.setAttribute("aria-expanded", "true");
-    searchToggle.setAttribute("aria-label", t("search.submit"));
-    searchInput.setAttribute("aria-hidden", "false");
-    searchInput.setAttribute("tabindex", "0");
-    searchInput.focus();
-  }
-
-  function collapseSearch() {
-    if (!searchForm || !searchInput || !searchToggle) return;
-
-    searchForm.classList.remove("is-open");
-    searchToggle.setAttribute("aria-expanded", "false");
-    searchToggle.setAttribute("aria-label", t("search.expand"));
-    searchInput.setAttribute("aria-hidden", "true");
-    searchInput.setAttribute("tabindex", "-1");
-    searchInput.blur();
-  }
-
-  searchToggle?.addEventListener("click", () => {
-    const open = searchForm.classList.contains("is-open");
-
-    if (!open) {
-      expandSearch();
-      return;
-    }
-
-    if (searchInput.value.trim()) {
-      searchForm.requestSubmit?.() || searchForm.submit();
-    } else {
-      collapseSearch();
-    }
-  });
-
-  searchForm?.addEventListener("focusout", (event) => {
-    if (!searchForm.contains(event.relatedTarget)) {
-      window.setTimeout(() => {
-        if (!searchForm.contains(document.activeElement)) {
-          collapseSearch();
-        }
-      }, 0);
-    }
-  });
 
   // Re-bind after nav items are rendered from content.json
   if (window.__content) {
