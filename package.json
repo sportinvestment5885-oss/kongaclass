@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "PORT=5050 node server.js"
+    "dev": "PORT=5050 node server.js",
+    "oauth:setup": "node scripts/gmail-oauth-setup.js",
+    "oauth:test": "node scripts/gmail-oauth-setup.js --test"
   },
   "engines": {
     "node": ">=18"
