@@ -69,6 +69,7 @@ button {
   --color-accent: #4baf4f;
   --color-accent-hover: #43a047;
   --color-orange: #e08d17;
+  --color-brand-pink: #ff2db4;
   --color-muted: #333333;
   --color-border: #d0d0d0;
   --color-overlay: rgba(13, 12, 12, 0.5);
@@ -147,22 +148,41 @@ button {
   font-family: var(--font-display);
   font-size: var(--fs-title);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1;
 }
 
 .site-title a {
   color: var(--color-primary);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   transition: opacity var(--transition);
+}
+
+.site-logo {
+  display: block;
+  width: auto;
+  height: clamp(40px, 5.5vw, 56px);
+  max-width: min(160px, 38vw);
+  object-fit: contain;
+  object-position: left center;
+  flex-shrink: 0;
+}
+
+.site-title__text {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2.4vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--color-black);
+  white-space: nowrap;
 }
 
 .site-title a:hover,
 .site-title a:focus-visible {
-  opacity: 0.75;
+  opacity: 0.85;
 }
 
 /* --- Right cluster: phone | menu | actions --- */
@@ -490,18 +510,34 @@ button {
 }
 
 .site-footer__title {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity var(--transition);
+}
+
+.site-footer__logo {
+  display: block;
+  width: auto;
+  height: clamp(44px, 6vw, 64px);
+  max-width: 180px;
+  object-fit: contain;
+  object-position: left center;
+  flex-shrink: 0;
+}
+
+.site-footer__brand-text {
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-size: clamp(1.15rem, 2.4vw, 1.55rem);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1;
   color: #fff;
-  transition: color var(--transition);
+  white-space: nowrap;
 }
 
 .site-footer__title:hover,
 .site-footer__title:focus-visible {
-  color: var(--color-orange);
+  opacity: 0.9;
 }
 
 .site-footer__tagline {
@@ -1373,8 +1409,13 @@ button {
     --actions-gap: 0.35rem;
   }
 
-  .site-title a {
-    max-width: 42vw;
+  .site-logo {
+    height: 34px;
+    max-width: 34vw;
+  }
+
+  .site-title__text {
+    font-size: 1rem;
   }
 
   .appointment-label {
